@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Make Notes</title>
+    <!-- save local storage -->
+    <script>
+        function save() {
+            var title = document.getElementById("title").value;
+            var note = document.getElementById("note").value;
+            localStorage.setItem(title, note);
+            document.getElementById("title").value = "";
+            document.getElementById("note").value = "";
+            show();
+        }
+
+        function show() {
+            var notes = document.getElementById("notes");
+            notes.innerHTML = "";
+            for (var i = 0; i < localStorage.length; i++) {
+                var title = localStorage.key(i);
+                var note = localStorage.getItem(title);
+                notes.innerHTML += "<div class='bg-gray-200 max-w-sm rounded overflow-hidden shadow-lg'><div class='px-6 py-4'><div class='font-bold text-xl mb-2'>" + title + "</div><p class='text-gray-700 text-base'>" + note + "</p></div></div>";
+            }
+        }
+
+        function remove() {
+            var title = document.getElementById("title").value;
+            localStorage.removeItem(title);
+            document.getElementById("title").value = "";
+            document.getElementById("note").value = "";
+            show();
+        }
+
+        function clearAll() {
+            localStorage.clear();
+            show();
+        }
+
+        function showAll() {
+            show();
+        }
+
+        function edit() {
+            var title = document.getElementById("title").value;
+            var note = localStorage.getItem(title);
+            document.getElementById("note").value = note;
+        }
+
+        function makeBold() {
+            var note = document.getElementById("note");
+            var selectedText = note.value.substring(note.selectionStart, note.selectionEnd);
+            var before = note.value.substring(0, note.selectionStart);
+            var after = note.value.substring(note.selectionEnd, note.value.length);
+            note.value = before + "<b>" + selectedText + "</b>" + after;
+        }
+
+    </script>
+</head>
+<body onload="showAll()">
+    <div class="p-4 h-screen grid items-center justify-items-center content-center">
+        <div>
+            <h1 class="text-4xl text-center">Make Notes</h1>
+        </div>
+        <div class="grid gap-4">
+            <div class="flex flex-col gap-2">
+                <label for="title" class="text-2xl">Title</label>
+                <input type="text" id="title" class="border-2 border-black">
+            </div>
+            <div class="flex flex-col gap-2">
+                <label for="note" class="text-2xl">Note</label>
+                <textarea name="note" id="note" cols="30" rows="10" class="border-2 border-black"></textarea>
+            </div>
+            <div>
+                <button onclick="save()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Save</button>
+                <button onclick="remove()" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Remove</button>
+                <button onclick="clearAll()" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Clear All</button>
+                <button onclick="edit()" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Edit</button>
+                <button onclick="makeBold()" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Make Bold</button>
+            </div>
+            <div id="notes" class="flex flex-col-1 gap-4"></div>
+        </div>
+    </div>
+    <footer class="bottom-0 w-full bg-gray-200 text-center text-xs p-4 absolute">
+        <p>© 2021 Saurav Hathi</p>
+    </footer>
+</body>
+</html>
+
