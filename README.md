@@ -3,6 +3,8 @@
 This is a simple note taking app made using HTML, CSS and JavaScript #LPU.
 
 ![image](https://user-images.githubusercontent.com/61316762/197243029-27ef57f2-7355-4b64-9a1e-cf2d1d39e6be.png)
+![image](https://user-images.githubusercontent.com/61316762/197243520-bf20756c-9ea4-4557-8766-512200576c77.png)
+
 
 ## How to use
 
