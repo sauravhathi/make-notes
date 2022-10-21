@@ -2,6 +2,8 @@
 
 This is a simple note taking app made using HTML, CSS and JavaScript #LPU.
 
+![image](https://user-images.githubusercontent.com/61316762/197243029-27ef57f2-7355-4b64-9a1e-cf2d1d39e6be.png)
+
 ## How to use
 
 1. Enter the title of the note in the title field.
