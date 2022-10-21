@@ -4,7 +4,7 @@ This is a simple note taking app made using HTML, CSS and JavaScript #LPU.
 
 ## Live Demo
 
-[Make Notes](https://sauravhathi.github.io/make-notes/)
+### [https://sauravhathi.github.io/make-notes/](https://sauravhathi.github.io/make-notes/)
 
 ![image](https://user-images.githubusercontent.com/61316762/197257121-52275ff4-00ba-477b-978f-23a892ed8ad6.png)
 
